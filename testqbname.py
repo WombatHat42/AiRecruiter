@@ -88,7 +88,7 @@ def PPG(name_filename):
             oneStarQB = 300 - len(rating)
             for i in range(oneStarQB):
                 rating.append(" 1* ")
-
+##TODO replace with weight parameter 
             state = []
             for i in range(5):
                 state.append("Alabama")
@@ -237,3 +237,14 @@ def TeamCreate(filename):
                 first_name.append(line[1])
                 last_name.append(line[6])
                 #print(line[1], line[6])
+def team_build():
+    roster = {"QB": 0, "HB": 0, "FB": 0, "TE": 0, "T": 0, "G": 0, "C": 0, "DE": 0, "DT": 0, "OLB": 0,
+                "MLB": 0, "CB": 0, "FS": 0, "SS": 0, "K": 0, "P": 0}
+    pos_classes = {"rSr": 0, "Sr":0, "rJr":0, "Jr":0,"rSo":0,"So":0,"rFr":0}
+   
+
+    roster["QB"] += random.randint(3,5)
+    print(roster)
+    while sum(pos_classes) < roster["QB"]:
+        pos_classes +=1
+    print(pos_classes)
