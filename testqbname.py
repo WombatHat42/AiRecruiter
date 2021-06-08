@@ -237,6 +237,7 @@ def TeamCreate(filename):
                 first_name.append(line[1])
                 last_name.append(line[6])
                 #print(line[1], line[6])
+## assigns how many players per position on roster then assigns what class each player is
 def team_build():
     roster = {"QB": 0, "HB": 0, "FB": 0, "TE": 0, "T": 0, "G": 0, "C": 0, "DE": 0, "DT": 0, "OLB": 0,
                 "MLB": 0, "CB": 0, "FS": 0, "SS": 0, "K": 0, "P": 0}
