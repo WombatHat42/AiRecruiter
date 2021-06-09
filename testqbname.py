@@ -244,6 +244,7 @@ def team_build():
                 "MLB": 0, "CB": 0, "FS": 0, "SS": 0, "K": 0, "P": 0,"LS":0}
     pos_classes = ["rSR","SR","rJR","JR","rSO","SO","rFR"]
     
+    
     ##lists of position years(fr,so,jr,sr)
     QB_classes = []
     HB_classes = []
@@ -326,7 +327,24 @@ def team_build():
     for i in range(int(roster["LS"])):
         LS_classes.append(random.choices(pos_classes))
         
-
-    print(QB_classes, HB_classes, FB_classes, WR_classes, TE_classes, T_classes, G_classes, C_classes,
-          DE_classes, DT_classes, OLB_classes, MLB_classes, CB_classes, FS_classes, SS_classes,
-          K_classes, P_classes, LS_classes)
+    full_roster = roster
+    full_roster["QB"] = QB_classes
+    full_roster["HB"] = HB_classes
+    full_roster["FB"] = FB_classes
+    full_roster["WR"] = WR_classes
+    full_roster["TE"] = TE_classes
+    full_roster["T"] = T_classes
+    full_roster["G"] = G_classes
+    full_roster["C"] = C_classes
+    full_roster["DE"] = DE_classes
+    full_roster["DT"] = DT_classes
+    full_roster["OLB"] = OLB_classes
+    full_roster["MLB"] = MLB_classes
+    full_roster["CB"] = CB_classes
+    full_roster["FS"] = FS_classes
+    full_roster["SS"] = SS_classes
+    full_roster["K"] = K_classes
+    full_roster["P"] = P_classes
+    full_roster["LS"] = LS_classes
+    print(full_roster)
+    
