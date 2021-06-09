@@ -53,30 +53,14 @@ def PPG(name_filename):
                 weight.append(random.randint(170,260))
 
             
-##            if ht == fiveEleven: #weight bt 170- 205
-##                weight = random.randint(170,205)
-##            if height == sixFt: #170 - 210
-##                weight = randint(170,210)
-##            if height == sixOne: #175 & 220
-##                weight = randint(175,220)
-##            if height == sixTwo: #180-220
-##                weight = randint(180,220)
-##            if height == sixThree: #210-230
-##                weight = randint(210,230)
-##            if height == sixFour: #215-240
-##                weight = randint(215,240)
-##            if height == sixFive: #220-250
-##                weight = randint(220,250)
-##            if height == sixSix: #230-260
-##                weight = randint(230,260)
-
-        #create rating for players. QB has 2-5 5*, 5* total 35-45(3+-),4* total 300-350(20+/- per pos), 3* 600-700(45+- per pos), 2* 900-1200total(80+-)
+##create rating for players. QB has 2-5 5*, 5* total 35-45(3+-),4* total 300-350(20+/- per pos), 3* 600-700(45+- per pos), 2* 900-1200total(80+-)
             rating = []
             fiveStarQB = random.randint(0,5)
             fourStarQB = random.randint(15,20)
             threeStarQB = random.randint(40,50)
             twoStarQB = random.randint(75,85)
             #oneStarQB =  random.randint() all players without rating are 1* or "walkons"
+                
             for i in range(fiveStarQB):
                 rating.append(" 5* ")
             for i in range(fourStarQB):
@@ -88,6 +72,7 @@ def PPG(name_filename):
             oneStarQB = 300 - len(rating)
             for i in range(oneStarQB):
                 rating.append(" 1* ")
+                
 ##TODO replace with weight parameter 
             state = []
             for i in range(5):
@@ -179,7 +164,8 @@ def PPG(name_filename):
             for i in range(6):
                 state.append("Wisconsin")
             state.append("Wyoming")
-        #create complete player pool; about 300 per pos
+        
+##create complete player pool; about 300 per pos
             for i in range(10):
                 rand_f = random.choice(first_name)
                 rand_l = random.choice(last_name)
@@ -201,8 +187,10 @@ def PPG(name_filename):
             print(Dict_names)
             print(rand_names)
             return rand_names
-        #add state, with population, players are assigned w weights based off population. when done as fn use csv
-        ###make a loop that adds states to a list the number of times representative to how often they will appear on a player(?)
+
+##add state, with population, players are assigned w weights based off population. when done as fn use csv
+###make a loop that adds states to a list the number of times representative to how often they will appear on a player(?)
+
 ##            states = {"Alabama":4779736, "Alaska":710231, "Arizona":6392017, "Arkansas":2915918, "California":37253956,"Colorado":5029196,"Connecticut":3574097,"Delaware":897934,
 ##                      "Florida":18801310, "Georgia":9687653, "Hawaii":1360301, "Idaho":1567582, "Illinois":12830632, "Indiana":6483802, "Iowa":3046355,"Kansas":2853118,
 ##                      "Kentucky":4339367, "Louisiana":4533372, "Maine":1328361, "Maryland":5773552, "Massachusetts":6547629, "Michigan":9883640, "Minnesota":5303925,
@@ -237,13 +225,12 @@ def TeamCreate(filename):
                 first_name.append(line[1])
                 last_name.append(line[6])
                 #print(line[1], line[6])
+                
 ## assigns how many players per position on roster then assigns what class each player is
-import random
 def team_build():
     roster = {"QB": 0, "HB": 0, "FB": 0, "WR": 0,"TE":0, "T": 0, "G": 0, "C": 0, "DE": 0, "DT": 0, "OLB": 0,
                 "MLB": 0, "CB": 0, "FS": 0, "SS": 0, "K": 0, "P": 0,"LS":0}
     pos_classes = ["rSR","SR","rJR","JR","rSO","SO","rFR"]
-    
     
     ##lists of position years(fr,so,jr,sr)
     QB_classes = []
@@ -326,7 +313,8 @@ def team_build():
         P_classes.append(random.choices(pos_classes))
     for i in range(int(roster["LS"])):
         LS_classes.append(random.choices(pos_classes))
-        
+    
+##Creates new dictionary from roster, saves position class lists as new dictionary value
     full_roster = roster
     full_roster["QB"] = QB_classes
     full_roster["HB"] = HB_classes
@@ -346,5 +334,6 @@ def team_build():
     full_roster["K"] = K_classes
     full_roster["P"] = P_classes
     full_roster["LS"] = LS_classes
+        
     print(full_roster)
     
