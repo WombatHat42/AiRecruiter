@@ -238,14 +238,95 @@ def TeamCreate(filename):
                 last_name.append(line[6])
                 #print(line[1], line[6])
 ## assigns how many players per position on roster then assigns what class each player is
+import random
 def team_build():
-    roster = {"QB": 0, "HB": 0, "FB": 0, "TE": 0, "T": 0, "G": 0, "C": 0, "DE": 0, "DT": 0, "OLB": 0,
-                "MLB": 0, "CB": 0, "FS": 0, "SS": 0, "K": 0, "P": 0}
-    pos_classes = {"rSr": 0, "Sr":0, "rJr":0, "Jr":0,"rSo":0,"So":0,"rFr":0}
-   
+    roster = {"QB": 0, "HB": 0, "FB": 0, "WR": 0,"TE":0, "T": 0, "G": 0, "C": 0, "DE": 0, "DT": 0, "OLB": 0,
+                "MLB": 0, "CB": 0, "FS": 0, "SS": 0, "K": 0, "P": 0,"LS":0}
+    pos_classes = ["rSR","SR","rJR","JR","rSO","SO","rFR"]
+    
+    ##lists of position years(fr,so,jr,sr)
+    QB_classes = []
+    HB_classes = []
+    FB_classes = []
+    WR_classes = []
+    TE_classes = []
+    T_classes = []
+    G_classes = []
+    C_classes = []
+    DE_classes = []
+    DT_classes = []
+    OLB_classes = []
+    MLB_classes = []
+    CB_classes = []
+    FS_classes = []
+    SS_classes = []
+    K_classes = []
+    P_classes = []
+    LS_classes = []
 
-    roster["QB"] += random.randint(3,5)
-    print(roster)
-    while sum(pos_classes) < roster["QB"]:
-        pos_classes +=1
-    print(pos_classes)
+    ##determines how many players per position on roster
+    roster["QB"] += random.randint(3,5) 
+    roster["HB"] += random.randint(4,8)
+    roster["FB"] += random.randint(2,4)
+    roster["WR"] += random.randint(5,8)
+    roster["TE"] += random.randint(3,7)
+    roster["T"] += random.randint(4,11)
+    roster["G"] += random.randint(4,11)
+    roster["C"] += random.randint(2,4)
+    roster["DE"] += random.randint(4,8)
+    roster["DT"] += random.randint(4,8)
+    roster["OLB"] += random.randint(4,8)
+    roster["MLB"] += random.randint(3,5)
+    roster["CB"] += random.randint(5,8)
+    roster["FS"] += random.randint(2,4)
+    roster["SS"] += random.randint(2,4)
+    roster["K"] += random.randint(1,2)
+    roster["P"] += random.randint(1,2)
+    roster["LS"] += random.randint(1,2)
+    
+    ##gets total roster size
+    roster_values = roster.values()
+    roster_total = sum(roster_values)
+
+    ##adds class for the number of players at a position
+    for i in range(int(roster["QB"])):
+        QB_classes.append(random.choices(pos_classes))
+    for i in range(int(roster["HB"])):
+        HB_classes.append(random.choices(pos_classes))
+    for i in range(int(roster["FB"])):
+        FB_classes.append(random.choices(pos_classes))
+    for i in range(int(roster["WR"])):
+        WR_classes.append(random.choices(pos_classes))
+    for i in range(int(roster["TE"])):
+        TE_classes.append(random.choices(pos_classes))
+    for i in range(int(roster["T"])):
+        T_classes.append(random.choices(pos_classes))
+    for i in range(int(roster["G"])):
+        G_classes.append(random.choices(pos_classes))
+    for i in range(int(roster["C"])):
+        C_classes.append(random.choices(pos_classes))
+    for i in range(int(roster["DE"])):
+        DE_classes.append(random.choices(pos_classes))
+    for i in range(int(roster["DT"])):
+        DT_classes.append(random.choices(pos_classes))
+    for i in range(int(roster["OLB"])):
+        OLB_classes.append(random.choices(pos_classes))
+    for i in range(int(roster["MLB"])):
+        MLB_classes.append(random.choices(pos_classes))
+    for i in range(int(roster["CB"])):
+        CB_classes.append(random.choices(pos_classes))
+    for i in range(int(roster["FS"])):
+        FS_classes.append(random.choices(pos_classes))
+    for i in range(int(roster["SS"])):
+        SS_classes.append(random.choices(pos_classes))
+    for i in range(int(roster["K"])):
+        K_classes.append(random.choices(pos_classes))
+    for i in range(int(roster["P"])):
+        P_classes.append(random.choices(pos_classes))
+    for i in range(int(roster["LS"])):
+        LS_classes.append(random.choices(pos_classes))
+        
+
+    print(QB_classes, HB_classes, FB_classes, WR_classes, TE_classes, T_classes, G_classes, C_classes,
+          DE_classes, DT_classes, OLB_classes, MLB_classes, CB_classes, FS_classes, SS_classes,
+          K_classes, P_classes, LS_classes)
